@@ -5,6 +5,7 @@ The conditions of this project are the following:
 - Use Tokio for asynchronous programming
 - Make it a CLI application
 - Add documentation that explains parts of the program and how it works
+- Make use of a single-crate project layout
 
 Optional (when I feel like doing so):
 - Create a GUI to interact with the program
