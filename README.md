@@ -3,7 +3,7 @@ This is a "proof of skill" project. The goal is to program a fully functioning p
 The conditions of this project are the following:
 - Use the Rust Language
 - Use Tokio for asynchronous programming
-- Make it a CLI application
+- Make it a CLI or TUI application
 - Add documentation that explains parts of the program and how it works
 - Make use of a single-crate project layout
 
