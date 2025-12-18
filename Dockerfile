@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM rust:1.92-bullseye
 LABEL authors = "Thomas Lysens"
 
 ARG INTERFACE
@@ -6,13 +6,14 @@ ARG DEBUG
 
 # Commands to run first before executing application
 # Update apt list
-RUN apt-get update && apt-get install net-tools
+RUN apt-get update && apt-get install -y net-tools libpcap-dev
 
-WORKDIR /app
+WORKDIR /Bloodhound
+RUN mkdir src
+COPY Cargo.toml Cargo.lock ./
+COPY src ./src
 
-COPY ./target/debug/bloodhound.exe /app
+RUN cargo build --release
 
 # Execute application
-CMD [ "ifconfig" ]
-CMD [ "./bloodhound" ]
-#CMD[ "./bloodhound", "--interface ${ INTERFACE }", "--debug ${ DEBUG }" ]
+CMD [ "./target/release/bloodhound" ]
